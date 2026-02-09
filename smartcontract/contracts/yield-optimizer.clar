@@ -4,6 +4,7 @@
 (define-constant contract-owner tx-sender)
 (define-data-var current-strategy uint u1)
 (define-data-var total-deposits uint u0)
+(define-data-var last-harvest uint u0)
 
 (define-map user-deposits principal uint)
 
@@ -17,6 +18,22 @@
     (map-set user-deposits tx-sender (+ (default-to u0 (map-get? user-deposits tx-sender)) amount))
     (var-set total-deposits (+ (var-get total-deposits) amount))
     (ok amount)
+  )
+)
+
+(define-public (harvest)
+  (let (
+      (timestamp stacks-block-time)
+    )
+    ;; 1. Claim rewards from current strategy
+    ;; (contract-call? .strategy claim-rewards)
+    
+    ;; 2. Swap rewards to base asset
+    ;; (contract-call? .dex swap ...)
+
+    ;; 3. Re-invest
+    (var-set last-harvest timestamp)
+    (ok timestamp)
   )
 )
 
