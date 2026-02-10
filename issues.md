@@ -1,0 +1,62 @@
+# Project Roadmap & Issues - BitYield 📈
+
+This document tracks the development of the BitYield yield optimizer.
+
+---
+
+## 🚀 Priority: Critical
+
+### Issue #1: Harvest Logic
+**Status:** ✅ COMPLETED
+**Description:** Implement harvest function structure.
+- **Tasks:**
+  - [x] Implement `harvest` stub.
+  - [x] Track `last-harvest` time.
+
+### Issue #2: Strategy Interface
+**Status:** ✅ COMPLETED
+**Description:** Define standard trait for strategies.
+- **Tasks:**
+  - [x] Create `strategy-trait`.
+
+### Issue #3: Strategy Integration
+**Status:** ❌ PENDING
+**Description:** Connect `yield-optimizer` to a concrete strategy.
+- **Tasks:**
+  - [ ] Implement `set-strategy` function.
+  - [ ] Call strategy during harvest.
+
+---
+
+## 🛠️ Smart Contract Tasks
+
+### Issue #4: Auto-Compounding
+**Status:** ❌ PENDING
+**Description:** Automate the reinvestment loop.
+- **Tasks:**
+  - [ ] Calculate compound frequency.
+  - [ ] Split rewards for gas/fee.
+
+### Issue #5: Multi-Vault Support
+**Status:** ❌ PENDING
+**Description:** Support multiple assets (STX, ALEX, USDA).
+- **Tasks:**
+  - [ ] Create vault factory pattern.
+
+---
+
+## 🎨 Frontend Tasks
+
+### Issue #6: Yield Dashboard
+**Status:** ❌ PENDING
+**Description:** User interface for deposits.
+- **Tasks:**
+  - [ ] Display TVL and APY.
+  - [ ] Deposit/Withdraw modal.
+
+---
+
+## ✅ Completed Milestones
+- [x] Project Scaffold
+- [x] Basic Contract Logic
+- [x] Strategy Trait
