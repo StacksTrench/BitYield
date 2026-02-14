@@ -20,11 +20,11 @@ This document tracks the development of the BitYield yield optimizer.
   - [x] Create `strategy-trait`.
 
 ### Issue #3: Strategy Integration
-**Status:** ❌ PENDING
+**Status:** ✅ COMPLETED
 **Description:** Connect `yield-optimizer` to a concrete strategy.
 - **Tasks:**
-  - [ ] Implement `set-strategy` function.
-  - [ ] Call strategy during harvest.
+  - [x] Implement `set-strategy` function.
+  - [x] Call strategy during harvest.
 
 ---
 
