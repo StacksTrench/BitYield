@@ -31,11 +31,11 @@ This document tracks the development of the BitYield yield optimizer.
 ## 🛠️ Smart Contract Tasks
 
 ### Issue #4: Auto-Compounding
-**Status:** ❌ PENDING
+**Status:** ✅ COMPLETED
 **Description:** Automate the reinvestment loop.
 - **Tasks:**
-  - [ ] Calculate compound frequency.
-  - [ ] Split rewards for gas/fee.
+  - [x] Calculate compound frequency.
+  - [x] Split rewards for gas/fee.
 
 ### Issue #5: Multi-Vault Support
 **Status:** ❌ PENDING
