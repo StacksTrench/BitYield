@@ -8,11 +8,18 @@
 (define-data-var total-deposits uint u0)
 (define-data-var last-harvest uint u0)
 (define-data-var active-strategy-principal principal tx-sender)
+(define-data-var fee-bips uint u50) ;; 0.5% fee
 
 (define-map user-deposits principal uint)
 
 (define-read-only (get-optimal-yield)
   (var-get current-strategy)
+)
+
+(define-read-only (calculate-compound-frequency)
+  ;; Logic: (Gas Cost / Yield Rate) ^ 0.5
+  ;; Placeholder: 144 blocks (~1 day)
+  u144
 )
 
 (define-public (set-strategy (new-strategy <strategy-trait>))
@@ -40,14 +47,17 @@
     (asserts! (is-eq (contract-of strategy) (var-get active-strategy-principal)) (err u101))
 
     ;; 1. Claim rewards from current strategy
-    (unwrap! (contract-call? strategy harvest) (err u102))
-    
-    ;; 2. Swap rewards to base asset
-    ;; (contract-call? .dex swap ...)
-
-    ;; 3. Re-invest
-    (var-set last-harvest timestamp)
-    (ok timestamp)
+    (let (
+        (harvested-amount (unwrap! (contract-call? strategy harvest) (err u102)))
+        (fee-amount (/ (* harvested-amount (var-get fee-bips)) u10000))
+        (reinvest-amount (- harvested-amount fee-amount))
+      )
+        ;; 2. Logic to swap/reinvest would go here
+        
+        ;; 3. Update state
+        (var-set last-harvest timestamp)
+        (ok reinvest-amount)
+    )
   )
 )
 
